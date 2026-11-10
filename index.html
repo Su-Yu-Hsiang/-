@@ -1,0 +1,453 @@
+html
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>得勝工程企業有限公司 - 專業道路工程與牌面清潔</title>
+
+<style>
+/* 基礎設定與平滑滾動 */
+html {
+    scroll-behavior: smooth;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:"Microsoft JhengHei", sans-serif;
+    line-height:1.8;
+    color:#333;
+    background-color: #fafafa;
+}
+
+/* Header 導覽列 */
+header{
+    background:#1e293b;
+    color:white;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h1{
+    font-size:24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-size: 16px;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#eab308; /* 工程黃點綴色 */
+}
+
+/* Hero 首頁大圖區 */
+.hero{
+    height:125vh; /* 修正原本 190vh 過長的問題 */
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url("file:///D:/1/1.jpg") center center / cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    padding:40px;
+}
+
+.hero h2{
+    font-size:48px;
+    margin-bottom:20px;
+    letter-spacing: 2px;
+}
+
+.hero p{
+    font-size:22px;
+    margin-bottom:35px;
+    letter-spacing: 4px;
+    color: #cbd5e1;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 35px;
+    background:#eab308; /* 亮眼工程黃，引導點擊 */
+    color:#1e293b;
+    text-decoration:none;
+    border-radius:5px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.2);
+}
+
+.btn:hover{
+    background:#ca8a04;
+    transform: translateY(-2px);
+}
+
+/* 共用區塊樣式 */
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:90px 20px;
+}
+
+section h2{
+    text-align:center;
+    margin-bottom:60px;
+    font-size:36px;
+    position: relative;
+    padding-bottom:15px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #eab308;
+    border-radius: 2px;
+}
+
+/* About 關於我們 */
+#about {
+    background-color: #ffffff;
+}
+
+.about-content{
+    display:flex;
+    gap:50px;
+    align-items: center;
+    flex-wrap:wrap;
+}
+
+.about-img-box {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-content img{
+    width:100%;
+    height: auto;
+    border-radius:10px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+}
+
+.about-text{
+    flex:1.2;
+    min-width: 300px;
+}
+
+.about-text h3{
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #1e293b;
+}
+
+.about-text .intro-p {
+    font-size: 16px;
+    color: #4b5563;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+.about-text h4{
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #1e293b;
+    border-left: 4px solid #eab308;
+    padding-left: 10px;
+}
+
+.advantage-item {
+    margin-bottom: 15px;
+    background: #f8fafc;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.advantage-item strong {
+    color: #0f172a;
+}
+
+/* Services 服務項目 */
+#services {
+    background-color: #f1f5f9;
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));
+    gap:40px;
+}
+
+.card{
+    background:white;
+    box-shadow:0 10px 20px rgba(0,0,0,.05);
+    border-radius:10px;
+    overflow:hidden;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.12);
+}
+
+.card img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+}
+
+.card-body{
+    padding:30px;
+}
+
+.card h3{
+    margin-bottom:15px;
+    font-size: 22px;
+    color: #1e293b;
+}
+
+.card p{
+    color: #64748b;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.service-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #334155;
+}
+
+.service-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #eab308;
+    font-weight: bold;
+}
+
+/* Contact 聯絡資訊 */
+#contact{
+    background:#ffffff;
+}
+
+.contact-box{
+    max-width: 600px;
+    margin: 0 auto;
+    background: #f8fafc;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size:18px;
+    margin-bottom: 20px;
+    color: #334155;
+}
+
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer 頁尾 */
+footer{
+    background:#1e293b;
+    color:#cbd5e1;
+    text-align:center;
+    padding:25px;
+    font-size: 14px;
+    border-top: 1px solid #334155;
+}
+
+/* 手機版響應式優化 */
+@media(max-width:768px){
+    header{
+        flex-direction:column;
+        padding: 15px 20px;
+    }
+
+    nav{
+        margin-top:15px;
+    }
+    
+    nav a {
+        margin: 0 10px;
+    }
+
+    .hero h2{
+        font-size:32px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+    
+    .container {
+        padding: 60px 20px;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>得勝工程企業有限公司</h1>
+    <nav>
+        <a href="#about">關於我們</a>
+        <a href="#services">服務項目</a>
+        <a href="#contact">聯絡我們</a>
+    </nav>
+</header>
+
+<!-- 首頁大圖區 -->
+<section class="hero">
+    <div class="hero-content">
+        <h2>專業道路工程 ‧ 交通牌面清潔</h2>
+        <p>誠信 ‧ 品質 ‧ 安全 ‧ 效率</p>
+        <a href="#contact" class="btn">立即聯絡諮詢</a>
+    </div>
+</section>
+
+<!-- 關於我們 -->
+<section id="about">
+    <div class="container">
+        <h2>關於我們</h2>
+        <div class="about-content">
+            <div class="about-img-box">
+                <!-- 建議將圖片放入網頁同層的 images 資料夾內 -->
+                <img src="file:///D:/1/1.jpg" alt="得勝工程施工現場">
+            </div>
+
+            <div class="about-text">
+                <h3>得勝工程企業有限公司</h3>
+                <p class="intro-p">
+                    深耕交通工程領域多年，秉持「專業、安全、高效、負責」的經營理念，致力於各類道路工程與公眾設施維護。我們擁有專業的施工團隊與先進的機具設備，無論是基礎道路養護還是長期的交通牌面清潔維護，皆能嚴格把關每一道工序，深得政府機關與民間企業的信賴。
+                </p>
+                
+                <h4>三大核心優勢</h4>
+                <div class="advantage-item">
+                    ⚙️ <strong>專業技術：</strong> 團隊經驗豐富，嚴格遵循國家安全施工標準。
+                </div>
+                <div class="advantage-item">
+                    ⏱️ <strong>高效履約：</strong> 準確掌控工程進度，在安全前提下展現最優執行力。
+                </div>
+                <div class="advantage-item">
+                    🤝 <strong>完善服務：</strong> 從前期規劃、現場施工到後期維護，提供一條龍卓越服務。
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 服務項目 -->
+<section id="services">
+    <div class="container">
+        <h2>服務項目</h2>
+        <div class="service-grid">
+
+            <!-- 服務項目 1 -->
+            <div class="card">
+                <img src="file:///D:/1/1.jpg" alt="道路工程">
+                <div class="card-body">
+                    <h3>道路工程</h3>
+                    <p>提供全面性的道路鋪設與交通優化方案，嚴格把關瀝青與混凝土施工品質，確保路面平整與耐用度。</p>
+                    <ul class="service-list">
+                        <li>瀝青、混凝土路面鋪設與翻新</li>
+                        <li>路面坑洞修補與緊急搶修服務</li>
+                        <li>道路標線繪製（熱拌反光標線工程）</li>
+                        <li>交通安全防護設施安裝（防撞桿、反光導標）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 服務項目 2 -->
+            <div class="card">
+                <img src="file:///D:/1/1.jpg" alt="牌面清潔">
+                <div class="card-body">
+                    <h3>牌面清潔與維護</h3>
+                    <p>恢復交通指示牌、標誌的高反光清晰度，全面清除長年累積的油污與青苔，確保全天候用路人行車安全。</p>
+                    <ul class="service-list">
+                        <li>高架道路、省道、市區道路交通指示牌清洗</li>
+                        <li>牌面青苔、油污、反光貼紙老舊髒污專業除垢</li>
+                        <li>牌面結構安全檢查與螺絲加固</li>
+                        <li>出動高空作業車安全施工（配置專業交維人員）</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- 聯絡資訊 -->
+<section id="contact">
+    <div class="container">
+        <h2>聯絡我們</h2>
+        <div class="contact-box">
+            <div class="contact-item">
+                <span>📧</span>
+                <strong>Email：</strong>shawn07su@email.com
+            </div>
+            <div class="contact-item">
+                <span>📞</span>
+                <strong>電話：</strong>0939-362-383
+            </div>
+            <div class="contact-item">
+                <span>📍</span>
+                <strong>地址：</strong>新北市新莊區新北大道七段498巷16號3樓
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 頁尾 -->
+<footer>
+    <p>© 2026 得勝工程企業有限公司 All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
